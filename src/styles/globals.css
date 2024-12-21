@@ -2,37 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define root variables for light and dark themes */
 :root {
     --background: #ffffff;
     --foreground: #171717;
+    --primary: #0070f3;
+    --secondary: #f7f7f7;
+    --accent: #333333;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
         --foreground: #ededed;
+        --primary: #0a84ff;
+        --secondary: #1a1a1a;
+        --accent: #cccccc;
     }
 }
 
-
+/* Apply global styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    @apply m-0 p-0 text-base font-sans;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 a {
-    color: #0070f3;
-    text-decoration: none;
+    @apply no-underline;
+    color: var(--primary);
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+    @apply underline;
+    color: var(--primary);
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+    @apply list-none m-0 p-0;
+}
+
+/* Enhance focus outline for accessibility */
+:focus {
+    outline: 2px dashed var(--primary);
+    outline-offset: 4px;
+}
+
+/* Buttons with Tailwind utilities */
+button {
+    @apply px-4 py-2 text-white font-medium rounded-lg shadow-md;
+    background-color: var(--primary);
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    @apply transform scale-105;
+    background-color: var(--primary-hover);
+}
+
+button:focus {
+    @apply outline-none ring-4 ring-blue-300;
+}
+
+/* Responsive typography */
+h1 {
+    @apply text-4xl font-bold leading-tight;
+}
+
+h2 {
+    @apply text-3xl font-semibold leading-tight;
+}
+
+p {
+    @apply text-lg leading-relaxed;
+}
+
+/* Add container utility for layout */
+.container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }

@@ -2,33 +2,34 @@ import Link from 'next/link';
 
 export default function Home() {
     return (
-        <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
-            <h1 style={{ color: '#0070f3' }}>Welcome to My Next.js Project</h1>
-            <p>This project is deployed on Vercel.</p>
-            <nav style={{ marginBottom: '20px' }}>
-                <ul style={{ listStyleType: 'none', padding: 0 }}>
-                    <li style={{ marginBottom: '10px' }}>
-                        <Link href="/about">
-                            <span style={{ cursor: 'pointer' }}>About Page</span>
-                        </Link>
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                        <Link href="/blog">
-                            <span style={{ cursor: 'pointer' }}>Blog</span>
-                        </Link>
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                        <Link href="/profile/john-doe">
-                            <span style={{ cursor: 'pointer' }}>Dynamic Profile</span>
-                        </Link>
-                    </li>
-                    <li style={{ marginBottom: '10px' }}>
-                        <Link href="/api/hello">
-                            <span style={{ cursor: 'pointer' }}>API Test</span>
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
+        <div className="min-h-screen bg-gradient-to-r from-blue-50 to-gray-100 flex flex-col justify-center items-center">
+            <div className="max-w-3xl text-center p-8 bg-white rounded-lg shadow-2xl">
+                <h1 className="text-5xl font-extrabold text-blue-700 mb-6">
+                    Welcome to My Next.js Project
+                </h1>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Explore our platform to learn more about the latest technologies and trends in the industry. This project is deployed seamlessly using{' '}
+                    <span className="font-semibold text-blue-600">Vercel</span>.
+                </p>
+                <nav>
+                    <ul className="flex flex-col sm:flex-row sm:justify-center gap-6">
+                        <li>
+                            <Link href="/about">
+                                <span className="block px-8 py-4 text-lg font-medium text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-200">
+                                    About Us
+                                </span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/blog">
+                                <span className="block px-8 py-4 text-lg font-medium text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700 hover:shadow-lg transition duration-200">
+                                    Visit Blog
+                                </span>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     );
 }
